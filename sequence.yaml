@@ -1,0 +1,42 @@
+classes : 
+  - name: ServiceImpl.java
+    ailias : service
+  - name : Repository.java
+    ailias : repository
+  - name : Test.java
+    ailias : test
+flows : 
+  - type : arrow
+    from : service
+    to : repository
+    description : find records by TestModel <br>from repository
+    returnmsg : return records
+    args : 
+      - type : TestModel
+        name : testModel
+      - type : TestModel
+        name : testModel2
+  - type : arrow
+    from : repository
+    to : test
+    description : test
+    returnmsg : 'return test'
+    args : 
+      - type : TestModel
+        name : testModel
+  - type : arrow
+    from : test
+    to : test2
+    description : test2
+    returnmsg : 'return test2'
+    args : 
+      - type : TestModel
+        name : testModel
+  - type : arrow
+    from : test
+    to : test
+    description : testRecursive
+    args : 
+      - type : TestModel
+        name : testModel
+
