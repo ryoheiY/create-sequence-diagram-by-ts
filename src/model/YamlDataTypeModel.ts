@@ -11,6 +11,7 @@ export interface ArrowFlow {
   type: string;
   from: string;
   to: string;
+  action: string;
   description: string;
   returnmsg: string;
   args: Arg[];

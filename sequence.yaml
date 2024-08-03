@@ -9,6 +9,7 @@ flows :
   - type : arrow
     from : service
     to : repository
+    action : findByTestModel
     description : find records by TestModel <br>from repository
     returnmsg : return records
     args : 
@@ -19,7 +20,8 @@ flows :
   - type : arrow
     from : repository
     to : test
-    description : test
+    action : testMethod
+    description : test説明です
     returnmsg : 'return test'
     args : 
       - type : TestModel
@@ -27,7 +29,7 @@ flows :
   - type : arrow
     from : test
     to : test2
-    description : test2
+    action : test2
     returnmsg : 'return test2'
     args : 
       - type : TestModel
@@ -35,8 +37,32 @@ flows :
   - type : arrow
     from : test
     to : test
-    description : testRecursive
+    action : testRecursive
     args : 
       - type : TestModel
         name : testModel
-
+  - type : arrow
+    from : repository
+    to : test
+    action : testMethod
+    description : test説明です
+    returnmsg : 'return test'
+    args : 
+      - type : TestModel
+        name : testModel
+  - type : arrow
+    from : test
+    to : test2
+    action : test2
+    returnmsg : 'return test2'
+    args : 
+      - type : TestModel
+        name : testModel
+  - type : arrow
+    from : test
+    to : test
+    action : testRecursive
+    args : 
+      - type : TestModel
+        name : testModel
+  
