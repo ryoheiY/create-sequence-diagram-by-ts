@@ -1,10 +1,10 @@
 classes : 
   - name: ServiceImpl.java
-    ailias : service
+    alias : service
   - name : Repository.java
-    ailias : repository
+    alias : repository
   - name : Test.java
-    ailias : test
+    alias : test
 flows : 
   - type : arrow
     from : service
