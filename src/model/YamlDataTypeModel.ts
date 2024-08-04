@@ -1,6 +1,6 @@
 export const enum flowType {
   Arrow = 'arrow'
-};
+}
 
 export interface Arg {
   type: string;
