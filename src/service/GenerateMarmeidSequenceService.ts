@@ -1,9 +1,9 @@
 import * as fs from "fs";
 import * as yaml from "js-yaml";
-import { arrowStrBuild, buildReturnArrowStr } from "./BuildArrowStrService";
-import { flowType } from "../model/YamlDataTypeModel";
-import { generateAiliasStr } from "./GenerateAiliasService";
-import { rootCertificates } from "tls";
+import {arrowStrBuild, buildReturnArrowStr} from "./BuildArrowStrService";
+import {flowType} from "../model/YamlDataTypeModel";
+import {generateAliasStr} from "./GenerateAiliasService";
+import path from "node:path";
 
 // 戻りの矢印用のStack変数
 export const fromStack: string[] = [];
@@ -15,12 +15,12 @@ export const returnMsgStack: string[] = [];
  */
 export const generateMermaidSequence = (): string => {
   // YAMLを読み込む
-  const yamlData = fs.readFileSync("/Users/ryo/vscoide/uml-create/sequence.yaml", "utf8");
+  const yamlData = fs.readFileSync(path.resolve(__dirname, "../../sequence.yaml"), "utf8");
   const data = yaml.load(yamlData) as any;
   // declare sequenceDiagram
   let mermaid = "sequenceDiagram\n";
   // declare alias block
-  mermaid += generateAiliasStr(data.classes);
+  mermaid += generateAliasStr(data.classes);
   // build sequence diagram
   data.flows.forEach((flow: any) => {
     const type = flow.type;
