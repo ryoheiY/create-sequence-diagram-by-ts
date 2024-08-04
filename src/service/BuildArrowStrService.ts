@@ -52,6 +52,13 @@ export function arrowStrBuild(
   return buildStr;
 }
 
+/**
+ * 戻り同期処理のシーケンス組み立て用関数
+ * @param count
+ * @param fromStack
+ * @param toStack
+ * @param returnMsgStack
+ */
 export function buildReturnArrowStr(
   count: number,
   fromStack: string[],
